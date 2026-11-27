@@ -4,13 +4,19 @@
 
 ## Phase 2 — Secure Boot
 
-| ID | Loại | Mô tả | Cách thực hiện | Kỳ vọng |
+> ✅ **HOÀN THÀNH (27/11/2026)** — 7/7 test PASS. Lưu ý: ID thực tế khi test khác
+> ma trận ban đầu (SB-N1/N2/N5 = tamper FIP chain ở TF-A; SB-N3/N4 = FIT ở U-Boot).
+> Evidence: `artifacts/boot-logs/`.
+
+| ID | Loại | Mô tả | Kết quả | Evidence |
 |---|---|---|---|---|
-| SB-P1 | Positive | Boot image hợp lệ end-to-end | `scripts/run-qemu.sh` | boot đến shell |
-| SB-N1 | Negative | Kernel bị sửa 1 byte | sửa 1 byte trong FIT image rồi boot | từ chối ở U-Boot |
-| SB-N2 | Negative | Image không ký | build FIT không sign | từ chối |
-| SB-N3 | Negative | Ký bằng key sai | dùng key khác signing key | từ chối |
-| SB-N4 | Negative | Đổi cert trong FIP | thay cert trong FIP | từ chối ở TF-A |
+| SB-P1 | Positive | Boot hợp lệ qua TBB (V1) | ✅ PASS — 7 images authenticated | `tbb-valid-boot.log` |
+| SB-N1 | Negative | Tamper BL31 trong flash | ✅ PASS — Hash mismatch, halt | `sb-n1-tampered-bl31.log` |
+| SB-N2 | Negative | Tamper U-Boot trong flash | ✅ PASS — Failed image id 5 | `sb-n2-tampered-uboot.log` |
+| SB-N5 | Negative | Tamper cert (wrong key) | ✅ PASS — auth error code 2 | `sb-n5-wrong-key.log` |
+| SB-P2 | Positive | Boot FIT hợp lệ (V2) | ✅ PASS — rsa2048:fit+ OK → login | `fit-valid-boot.log` |
+| SB-N3 | Negative | Tamper kernel trong FIT | ✅ PASS — Bad hash, halt | `sb-n3-tampered-kernel.log` |
+| SB-N4 | Negative | FIT không ký | ✅ PASS — required signature fail, halt | `sb-n4-unsigned-fit.log` |
 
 ## Phase 3 — Trusted Application
 
