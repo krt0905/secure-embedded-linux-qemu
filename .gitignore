@@ -1,0 +1,22 @@
+# Private keys và secrets — KHÔNG BAO GIỜ commit
+pki/keys/
+*.key
+*.pem
+!pki/certs/*.pem
+*.p12
+*.pfx
+provisioning/state/
+
+# Build outputs
+build/buildroot/
+build/tfa/
+build/u-boot/
+build/optee/
+artifacts/images/
+output/
+
+# QEMU runtime
+*.qcow2
+*.ext4
+serial.log
+build/mbedtls/

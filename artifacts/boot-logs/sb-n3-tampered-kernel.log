@@ -1,0 +1,107 @@
+NOTICE:  Booting Trusted Firmware
+NOTICE:  BL1: v2.10.0	(release):
+NOTICE:  BL1: Built : 06:30:48, Nov 26 2026
+INFO:    BL1: RAM 0xe0ee000 - 0xe0f8000
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL1: Loading BL2
+INFO:    Loading image id=6 at address 0xe06b000
+INFO:    Image id=6 loaded: 0xe06b000 - 0xe06b4be
+INFO:    Loading image id=1 at address 0xe06b000
+INFO:    Image id=1 loaded: 0xe06b000 - 0xe07d3b1
+NOTICE:  BL1: Booting BL2
+INFO:    Entry point address = 0xe06b000
+INFO:    SPSR = 0x3c5
+NOTICE:  BL2: v2.10.0	(release):
+NOTICE:  BL2: Built : 06:42:23, Nov 26 2026
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL2: Doing platform setup
+INFO:    BL2: Loading image id 3
+INFO:    Loading image id=7 at address 0xe0a0000
+INFO:    Image id=7 loaded: 0xe0a0000 - 0xe0a0616
+INFO:    [TBB] Image id=7 authenticated OK (signature + hash verified)
+INFO:    Loading image id=9 at address 0xe0a0000
+INFO:    Image id=9 loaded: 0xe0a0000 - 0xe0a04e2
+INFO:    [TBB] Image id=9 authenticated OK (signature + hash verified)
+INFO:    Loading image id=13 at address 0xe0a0000
+INFO:    Image id=13 loaded: 0xe0a0000 - 0xe0a0438
+INFO:    [TBB] Image id=13 authenticated OK (signature + hash verified)
+INFO:    Loading image id=3 at address 0xe0a0000
+INFO:    Image id=3 loaded: 0xe0a0000 - 0xe0ac06c
+INFO:    [TBB] Image id=3 authenticated OK (signature + hash verified)
+INFO:    BL2: Loading image id 5
+INFO:    Loading image id=11 at address 0x60000000
+INFO:    Image id=11 loaded: 0x60000000 - 0x600004f2
+INFO:    [TBB] Image id=11 authenticated OK (signature + hash verified)
+INFO:    Loading image id=15 at address 0x60000000
+INFO:    Image id=15 loaded: 0x60000000 - 0x60000448
+INFO:    [TBB] Image id=15 authenticated OK (signature + hash verified)
+INFO:    Loading image id=5 at address 0x60000000
+INFO:    Image id=5 loaded: 0x60000000 - 0x60102898
+INFO:    [TBB] Image id=5 authenticated OK (signature + hash verified)
+NOTICE:  BL1: Booting BL31
+INFO:    Entry point address = 0xe0a0000
+INFO:    SPSR = 0x3cd
+NOTICE:  BL31: v2.10.0	(release):
+NOTICE:  BL31: Built : 06:35:01, Nov 26 2026
+INFO:    ARM GICv2 driver initialized
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x60000000
+INFO:    SPSR = 0x3c5
+
+
+U-Boot 2024.01 (Nov 26 2026 - 09:47:33 +0000)
+
+DRAM:  1 GiB
+Core:  51 devices, 14 uclasses, devicetree: board
+Flash: 32 MiB
+Loading Environment from Flash... *** Warning - bad CRC, using default environment
+
+In:    serial,usbkbd
+Out:   serial,vidconsole
+Err:   serial,vidconsole
+No working controllers found
+Net:   eth0: virtio-net#32
+starting USB...
+No working controllers found
+Hit any key to stop autoboot:  2  0
+=> irtio dev 0
+Unknown command 'irtio' - try 'help'
+=> virtio dev 0
+
+Device 0: QEMU VirtIO Block Device
+            Type: Hard Disk
+            Capacity: 60.0 MB = 0.0 GB (122880 x 512)
+... is now current device
+=> load virtio 0 0x44000000 /boot/fit-image.itb
+11909353 bytes read in 138 ms (82.3 MiB/s)
+=> load virtio 0 0x46000000 /boot/sig-overlay.dtb
+923 bytes read in 1 ms (901.4 KiB/s)
+=> fdt addr 0x40000000
+Working FDT set to 40000000
+=> fdt resize 0x2000
+=> fdt apply 0x46000000
+=> fdt addr -c 0x40000000
+=> setenv bootargs console=ttyAMA0 root=/dev/vda panic=1
+=> bootm 0x44000000 - 0x40000000
+## Loading kernel from FIT Image at 44000000 ...
+   Using 'conf-1' configuration
+   Verifying Hash Integrity ... sha256,rsa2048:fit+ OK
+   Trying 'kernel-1' kernel subimage
+     Description:  Linux kernel 6.1.44 for QEMU virt
+     Created:      2026-11-26   9:06:30 UTC
+     Type:         Kernel Image
+     Compression:  uncompressed
+     Data Start:   0x440000e8
+     Data Size:    11907584 Bytes = 11.4 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x42000000
+     Entry Point:  0x42000000
+     Hash algo:    sha256
+     Hash value:   482e8f51ff5df97204e93f488632a6ba6d5151cdae875f4bfac5cd5252aa47bf
+   Verifying Hash Integrity ... sha256 error!
+Bad hash value for 'hash-1' hash node in 'kernel-1' image node
+Bad Data Hash
+ERROR: can't get kernel image!
+=> qemu-system-aarch64: terminating on signal 15 from pid 965376 (timeout)

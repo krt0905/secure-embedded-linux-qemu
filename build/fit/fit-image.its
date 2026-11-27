@@ -1,0 +1,36 @@
+/dts-v1/;
+
+/ {
+    description = "Head unit kernel FIT image (signed)";
+    #address-cells = <1>;
+
+    images {
+        kernel-1 {
+            description = "Linux kernel 6.1.44 for QEMU virt";
+            data = /incbin/("Image");
+            type = "kernel";
+            arch = "arm64";
+            os = "linux";
+            compression = "none";
+            load = <0x42000000>;
+            entry = <0x42000000>;
+            hash-1 {
+                algo = "sha256";
+            };
+        };
+    };
+
+    configurations {
+        default = "conf-1";
+        conf-1 {
+            description = "Default boot configuration";
+            kernel = "kernel-1";
+            compatible = "linux,dummy-virt";
+            signature-1 {
+                algo = "sha256,rsa2048";
+                key-name-hint = "fit";
+                sign-images = "kernel";
+            };
+        };
+    };
+};

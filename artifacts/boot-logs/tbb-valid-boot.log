@@ -1,0 +1,98 @@
+NOTICE:  Booting Trusted Firmware
+NOTICE:  BL1: v2.10.0	(release):
+NOTICE:  BL1: Built : 06:30:48, Nov 26 2026
+INFO:    BL1: RAM 0xe0ee000 - 0xe0f8000
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL1: Loading BL2
+INFO:    Loading image id=6 at address 0xe06b000
+INFO:    Image id=6 loaded: 0xe06b000 - 0xe06b4be
+INFO:    Loading image id=1 at address 0xe06b000
+INFO:    Image id=1 loaded: 0xe06b000 - 0xe07d3b1
+NOTICE:  BL1: Booting BL2
+INFO:    Entry point address = 0xe06b000
+INFO:    SPSR = 0x3c5
+NOTICE:  BL2: v2.10.0	(release):
+NOTICE:  BL2: Built : 06:42:23, Nov 26 2026
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL2: Doing platform setup
+INFO:    BL2: Loading image id 3
+INFO:    Loading image id=7 at address 0xe0a0000
+INFO:    Image id=7 loaded: 0xe0a0000 - 0xe0a0616
+INFO:    [TBB] Image id=7 authenticated OK (signature + hash verified)
+INFO:    Loading image id=9 at address 0xe0a0000
+INFO:    Image id=9 loaded: 0xe0a0000 - 0xe0a04e2
+INFO:    [TBB] Image id=9 authenticated OK (signature + hash verified)
+INFO:    Loading image id=13 at address 0xe0a0000
+INFO:    Image id=13 loaded: 0xe0a0000 - 0xe0a0438
+INFO:    [TBB] Image id=13 authenticated OK (signature + hash verified)
+INFO:    Loading image id=3 at address 0xe0a0000
+INFO:    Image id=3 loaded: 0xe0a0000 - 0xe0ac06c
+INFO:    [TBB] Image id=3 authenticated OK (signature + hash verified)
+INFO:    BL2: Loading image id 5
+INFO:    Loading image id=11 at address 0x60000000
+INFO:    Image id=11 loaded: 0x60000000 - 0x600004f2
+INFO:    [TBB] Image id=11 authenticated OK (signature + hash verified)
+INFO:    Loading image id=15 at address 0x60000000
+INFO:    Image id=15 loaded: 0x60000000 - 0x60000448
+INFO:    [TBB] Image id=15 authenticated OK (signature + hash verified)
+INFO:    Loading image id=5 at address 0x60000000
+INFO:    Image id=5 loaded: 0x60000000 - 0x60101068
+INFO:    [TBB] Image id=5 authenticated OK (signature + hash verified)
+NOTICE:  BL1: Booting BL31
+INFO:    Entry point address = 0xe0a0000
+INFO:    SPSR = 0x3cd
+NOTICE:  BL31: v2.10.0	(release):
+NOTICE:  BL31: Built : 06:35:01, Nov 26 2026
+INFO:    ARM GICv2 driver initialized
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x60000000
+INFO:    SPSR = 0x3c5
+
+
+U-Boot 2024.01 (Nov 25 2026 - 15:21:32 +0000)
+
+DRAM:  1 GiB
+Core:  51 devices, 14 uclasses, devicetree: board
+Flash: 32 MiB
+Loading Environment from Flash... *** Warning - bad CRC, using default environment
+
+In:    serial,usbkbd
+Out:   serial,vidconsole
+Err:   serial,vidconsole
+No working controllers found
+Net:   eth0: virtio-net#32
+starting USB...
+No working controllers found
+Hit any key to stop autoboot:  2  1  0 
+Scanning for bootflows in all bootdevs
+Seq  Method       State   Uclass    Part  Name                      Filename
+---  -----------  ------  --------  ----  ------------------------  ----------------
+Scanning global bootmeth 'efi_mgr':
+7[r[999;999H[6n8No EFI system partition
+No EFI system partition
+Failed to persist EFI variables
+Missing TPMv2 device for EFI_TCG_PROTOCOL
+Missing RNG device for EFI_RNG_PROTOCOL
+Scanning bootdev 'fw-cfg@9020000.bootdev':
+fatal: no kernel available
+No working controllers found
+scanning bus for devices...
+Scanning bootdev 'virtio-blk#31.bootdev':
+BOOTP broadcast 1
+DHCP client bound to address 10.0.2.15 (2 ms)
+Scanning bootdev 'virtio-net#32.bootdev':
+BOOTP broadcast 1
+DHCP client bound to address 10.0.2.15 (0 ms)
+*** Warning: no boot file name; using '0A00020F.img'
+Using virtio-net#32 device
+TFTP from server 10.0.2.2; our IP address is 10.0.2.15
+Filename '0A00020F.img'.
+Load address: 0x40400000
+Loading: *
+TFTP error: 'Access violation' (2)
+Not retrying...
+No more bootdevs
+---  -----------  ------  --------  ----  ------------------------  ----------------
+(0 bootflows, 0 valid)
+=> qemu-system-aarch64: terminating on signal 15 from pid 947393 (timeout)

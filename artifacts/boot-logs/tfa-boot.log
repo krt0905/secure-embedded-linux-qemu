@@ -1,0 +1,57 @@
+NOTICE:  Booting Trusted Firmware
+NOTICE:  BL1: v2.10.0	(release):v2.10.0
+NOTICE:  BL1: Built : 15:20:55, Nov 25 2026
+NOTICE:  BL1: Booting BL2
+NOTICE:  BL2: v2.10.0	(release):v2.10.0
+NOTICE:  BL2: Built : 15:21:01, Nov 25 2026
+NOTICE:  BL1: Booting BL31
+NOTICE:  BL31: v2.10.0	(release):v2.10.0
+NOTICE:  BL31: Built : 15:21:13, Nov 25 2026
+
+
+U-Boot 2024.01 (Nov 25 2026 - 15:21:32 +0000)
+
+DRAM:  1 GiB
+Core:  51 devices, 14 uclasses, devicetree: board
+Flash: 32 MiB
+Loading Environment from Flash... *** Warning - bad CRC, using default environment
+
+In:    serial,usbkbd
+Out:   serial,vidconsole
+Err:   serial,vidconsole
+No working controllers found
+Net:   eth0: virtio-net#32
+starting USB...
+No working controllers found
+Hit any key to stop autoboot:  2  1  0 
+Scanning for bootflows in all bootdevs
+Seq  Method       State   Uclass    Part  Name                      Filename
+---  -----------  ------  --------  ----  ------------------------  ----------------
+Scanning global bootmeth 'efi_mgr':
+7[r[999;999H[6n8No EFI system partition
+No EFI system partition
+Failed to persist EFI variables
+Missing TPMv2 device for EFI_TCG_PROTOCOL
+Missing RNG device for EFI_RNG_PROTOCOL
+Scanning bootdev 'fw-cfg@9020000.bootdev':
+fatal: no kernel available
+No working controllers found
+scanning bus for devices...
+Scanning bootdev 'virtio-blk#33.bootdev':
+BOOTP broadcast 1
+DHCP client bound to address 10.0.2.15 (2 ms)
+Scanning bootdev 'virtio-net#32.bootdev':
+BOOTP broadcast 1
+DHCP client bound to address 10.0.2.15 (0 ms)
+*** Warning: no boot file name; using '0A00020F.img'
+Using virtio-net#32 device
+TFTP from server 10.0.2.2; our IP address is 10.0.2.15
+Filename '0A00020F.img'.
+Load address: 0x40400000
+Loading: *
+TFTP error: 'Access violation' (2)
+Not retrying...
+No more bootdevs
+---  -----------  ------  --------  ----  ------------------------  ----------------
+(0 bootflows, 0 valid)
+=> qemu-system-aarch64: terminating on signal 15 from pid 915019 (timeout)

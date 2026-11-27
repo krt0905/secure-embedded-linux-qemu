@@ -1,0 +1,11 @@
+
+virtio dev 0
+virtio dev 0
+load virtio 0 0x44000000 /boot/fit-image.itb
+load virtio 0 0x46000000 /boot/sig-overlay.dtb
+fdt addr 0x40000000
+fdt resize 0x2000
+fdt apply 0x46000000
+fdt addr -c 0x40000000
+setenv bootargs console=ttyAMA0 root=/dev/vda panic=1
+bootm 0x44000000 - 0x40000000

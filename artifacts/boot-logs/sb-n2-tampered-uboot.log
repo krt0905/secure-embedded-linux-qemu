@@ -1,0 +1,44 @@
+NOTICE:  Booting Trusted Firmware
+NOTICE:  BL1: v2.10.0	(release):
+NOTICE:  BL1: Built : 06:30:48, Nov 26 2026
+INFO:    BL1: RAM 0xe0ee000 - 0xe0f8000
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL1: Loading BL2
+INFO:    Loading image id=6 at address 0xe06b000
+INFO:    Image id=6 loaded: 0xe06b000 - 0xe06b4be
+INFO:    Loading image id=1 at address 0xe06b000
+INFO:    Image id=1 loaded: 0xe06b000 - 0xe07d3b1
+NOTICE:  BL1: Booting BL2
+INFO:    Entry point address = 0xe06b000
+INFO:    SPSR = 0x3c5
+NOTICE:  BL2: v2.10.0	(release):
+NOTICE:  BL2: Built : 06:42:23, Nov 26 2026
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL2: Doing platform setup
+INFO:    BL2: Loading image id 3
+INFO:    Loading image id=7 at address 0xe0a0000
+INFO:    Image id=7 loaded: 0xe0a0000 - 0xe0a0616
+INFO:    [TBB] Image id=7 authenticated OK (signature + hash verified)
+INFO:    Loading image id=9 at address 0xe0a0000
+INFO:    Image id=9 loaded: 0xe0a0000 - 0xe0a04e2
+INFO:    [TBB] Image id=9 authenticated OK (signature + hash verified)
+INFO:    Loading image id=13 at address 0xe0a0000
+INFO:    Image id=13 loaded: 0xe0a0000 - 0xe0a0438
+INFO:    [TBB] Image id=13 authenticated OK (signature + hash verified)
+INFO:    Loading image id=3 at address 0xe0a0000
+INFO:    Image id=3 loaded: 0xe0a0000 - 0xe0ac06c
+INFO:    [TBB] Image id=3 authenticated OK (signature + hash verified)
+INFO:    BL2: Loading image id 5
+INFO:    Loading image id=11 at address 0x60000000
+INFO:    Image id=11 loaded: 0x60000000 - 0x600004f2
+INFO:    [TBB] Image id=11 authenticated OK (signature + hash verified)
+INFO:    Loading image id=15 at address 0x60000000
+INFO:    Image id=15 loaded: 0x60000000 - 0x60000448
+INFO:    [TBB] Image id=15 authenticated OK (signature + hash verified)
+INFO:    Loading image id=5 at address 0x60000000
+INFO:    Image id=5 loaded: 0x60000000 - 0x60101068
+ERROR:   [TBB] Hash mismatch! Image tampered (computed != expected)
+ERROR:   [TBB] auth_hash():121 failed with error code 2.
+ERROR:   [TBB] auth_mod_verify_img():510 failed with error code 2.
+ERROR:   BL2: Failed to load image id 5 (-80)
+qemu-system-aarch64: terminating on signal 15 from pid 947378 (timeout)

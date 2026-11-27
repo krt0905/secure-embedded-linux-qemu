@@ -1,0 +1,23 @@
+NOTICE:  Booting Trusted Firmware
+NOTICE:  BL1: v2.10.0	(release):
+NOTICE:  BL1: Built : 06:30:48, Nov 26 2026
+INFO:    BL1: RAM 0xe0ee000 - 0xe0f8000
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL1: Loading BL2
+INFO:    Loading image id=6 at address 0xe06b000
+INFO:    Image id=6 loaded: 0xe06b000 - 0xe06b4be
+INFO:    Loading image id=1 at address 0xe06b000
+INFO:    Image id=1 loaded: 0xe06b000 - 0xe07d3b1
+NOTICE:  BL1: Booting BL2
+INFO:    Entry point address = 0xe06b000
+INFO:    SPSR = 0x3c5
+NOTICE:  BL2: v2.10.0	(release):
+NOTICE:  BL2: Built : 06:42:23, Nov 26 2026
+INFO:    Using crypto library 'mbed TLS'
+INFO:    BL2: Doing platform setup
+INFO:    BL2: Loading image id 3
+INFO:    Loading image id=7 at address 0xe0a0000
+INFO:    Image id=7 loaded: 0xe0a0000 - 0xe0a0616
+ERROR:   [TBB] auth_mod_verify_img():474 failed with error code 2.
+ERROR:   BL2: Failed to load image id 3 (-80)
+qemu-system-aarch64: terminating on signal 15 from pid 947351 (timeout)
